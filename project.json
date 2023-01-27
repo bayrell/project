@@ -21,29 +21,13 @@
 			[
 				"App"
 			]
-		},
-		{
-			"type": "js",
-			"dest": "public/assets/runtime.js",
-			"modules":
-			[
-				"Runtime",
-				"Runtime.Web"
-			]
-		},
-		{
-			"type": "js",
-			"dest": "public/assets/lang.js",
-			"modules":
-			[
-				"Bayrell.Lang"
-			]
 		}
 	],
 	"exclude":
 	[
 		"./.git/*",
 		"./var/*",
+		"./vendor/*",
 		"./modules/**/.git",
 		"./modules/**/es6",
 		"./modules/**/nodejs",
