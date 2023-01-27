@@ -1,0 +1,52 @@
+{
+	"name": "Project",
+	"languages": ["php", "es6"],
+	"modules":
+	[
+		{
+			"src": "app",
+			"type": "module"
+		},
+		{
+			"src": "lib",
+			"type": "folder"
+		}
+	],
+	"assets":
+	[
+		{
+			"type": "js",
+			"dest": "public/assets/app.js",
+			"modules":
+			[
+				"App"
+			]
+		},
+		{
+			"type": "js",
+			"dest": "public/assets/runtime.js",
+			"modules":
+			[
+				"Runtime",
+				"Runtime.Web"
+			]
+		},
+		{
+			"type": "js",
+			"dest": "public/assets/lang.js",
+			"modules":
+			[
+				"Bayrell.Lang"
+			]
+		}
+	],
+	"exclude":
+	[
+		"./.git/*",
+		"./var/*",
+		"./modules/**/.git",
+		"./modules/**/es6",
+		"./modules/**/nodejs",
+		"./modules/**/php"
+	]
+}

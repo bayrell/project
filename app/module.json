@@ -1,0 +1,25 @@
+{
+	"name": "App",
+	"assets":
+	[
+		"Main.js",
+		"Hooks/AppHook.bay",
+		"Routes/MainRoute.bay",
+		"Templates/Components/Body.bay",
+		"Templates/Components/Head.bay",
+		"Templates/Pages/IndexPage.bay",
+		"Templates/Pages/IndexPageModel.bay",
+		"Templates/LayoutPage.bay",
+		"ModuleDescription.bay"
+	],
+	"src": "./",
+	"dest":
+	{
+		"php": "var/php/App",
+		"es6": "var/es6/App"
+	},
+	"whitelist":
+	[
+		"\\.bay$"
+	]
+}

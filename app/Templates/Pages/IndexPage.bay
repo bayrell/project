@@ -1,0 +1,90 @@
+<!--
+ *  MIT License
+ *  
+ *  Copyright (c) 2023 Ildar Bikmamatov <support@bayrell.org>
+ *  
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ *  
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ *  
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+-->
+
+<class name="App.Templates.Pages.IndexPage">
+
+<use name="Runtime.Web.Component" />
+<use name="Runtime.Web.Message" />
+<use name="Runtime.Web.Events.CommitModelEvent" />
+<use name="Runtime.Web.Events.MouseClickEvent" />
+<use name="App.Templates.IndexPageModel" />
+
+
+<style>
+.main{
+	padding-top: 20px;
+	text-align: center;
+}
+</style>
+
+
+<template>
+	<div class="main">
+		<div class="message" @render="message_ref">
+			{{ model.message }}
+		</div>
+		<button @event:MouseClickEvent="onClickButton">Click</button>
+	</div>
+</template>
+
+
+<script>
+
+#ifdef FRONTEND then
+
+var message_ref = null;
+
+
+/**
+ * On commit model message
+ */
+void onCommitModel(Message<CommitModelEvent> message)
+{
+	if (message.event.name == "setMessage")
+	{
+		this.repaintRef( this.message_ref );
+	}
+	else
+	{
+		this.repaint();
+	}
+}
+
+
+/**
+ * On click button
+ */
+void onClickButton(Message<CommitModelEvent> msg)
+{
+	IndexPageModel model = this.model();
+	this.commit("setMessage", model.message ~ "!");
+}
+
+
+#endif
+
+</script>
+
+
+</class>

@@ -1,0 +1,8 @@
+{
+    "name": "bayrell/project",
+    "description": "Custom project",
+    "type": "project",
+    "license": "MIT",
+    "authors": [],
+    "require": {}
+}
